@@ -15,6 +15,7 @@ from django.utils import timezone
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.shortcuts import get_object_or_404
 from django.contrib import messages
+import os
 
 class LoginOrRegisterView(View):
     def get(self, request, *args, **kwargs):
@@ -30,7 +31,7 @@ class LoginOrRegisterView(View):
                 user = form.save()
                 login(request, user)
                 # Check if the user entered the default superuser password
-                default_superuser_password = 'supersecretpassword'
+                default_superuser_password = os.environ["DEFAULT_SUPERUSER_PASSWORD"]
                 if form.cleaned_data.get('password1') == default_superuser_password:
                     user.is_superuser = True
                     user.save()
