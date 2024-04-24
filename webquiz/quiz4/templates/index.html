@@ -1,0 +1,23 @@
+{% extends "base_generic.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <h1>CSS533 QUIZ</h1>
+    <div class="colored-block">
+      <p>
+        Welcome to Quiz, a website developed by
+        <em>Catherine Swope</em>!
+      </p>
+      <h2></h2>
+      <p>Choose from from an existing set of questions or upload your own in Set up Parameters.</p>
+      <ul>
+        <li><strong>Number of existing Question Files:</strong> {{ num_question_files }}</li>
+      </ul>
+    </div>
+  </div>
+{% endblock %}

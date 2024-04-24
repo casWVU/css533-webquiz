@@ -1,0 +1,69 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+  <h1>Question Manager</h1>
+
+  <label for="question_file">Select Question File:</label>
+  <select id="question_file">
+    {% for question_file in question_files %}
+      <option value="{% url 'question_manager' question_file.id %}" {% if question_file.id == question_file_id %}selected{% endif %}>
+        {{ question_file.name }}
+      </option>
+    {% endfor %}
+  </select>
+
+  <button id="add-button">Add New Question</button>
+
+  <div id="add-form" style="display: none;">
+    <h2>Add New Question</h2>
+    <form method="post" action="{% url 'add_question' %}">
+      {% csrf_token %}
+      <label for="question_text">Question Text:</label><br>
+      <textarea name="question_text" id="question_text"></textarea><br>
+      <label for="correct_answer_index">Correct Answer Index:</label><br>
+      <input type="number" name="correct_answer_index" id="correct_answer_index"><br>
+      <label for="answer_choices">Answer Choices:</label><br>
+      <textarea name="answer_choices" id="answer_choices"></textarea><br>
+      <input type="submit" value="Add">
+    </form>
+  </div>
+
+
+  {% for question in questions %}
+    <div class="question" data-id="{{ question.id }}">
+      <h2>{{ question.question_text }}</h2>
+      <div class="edit-form" style="display: none;">
+        <form method="post" action="{% url 'edit_question' question.id %}">
+          {% csrf_token %}
+          <label for="question_text">Question:</label><br>
+          <textarea name="question_text" id="question_text">{{ question.question_text }}</textarea><br>
+          <label for="correct_answer_index">Correct Answer Index:</label><br>
+          <input type="number" name="correct_answer_index" id="correct_answer_index" value="{{ question.correct_answer_index }}"><br>
+          <label for="answer_choices">Answer Choices:</label><br>
+          <textarea name="answer_choices" id="answer_choices">{{ question.answer_choices }}</textarea><br>
+          <input type="submit" value="Save">
+        </form>
+        <form method="post" action="{% url 'delete_question' question.id %}">
+          {% csrf_token %}
+          <input type="submit" value="Delete">
+        </form>
+      </div>
+    </div>
+  {% endfor %}
+
+  <script>
+    document.querySelector('#question_file').addEventListener('change', function() {
+      window.location.href = this.value;
+    });
+    
+    document.querySelectorAll('.question').forEach(question => {
+      question.addEventListener('click', () => {
+        question.querySelector('.edit-form').style.display = 'block';
+      });
+    });
+
+    document.querySelector('#add-button').addEventListener('click', () => {
+      document.querySelector('#add-form').style.display = 'block';
+    });
+  </script>
+{% endblock %}

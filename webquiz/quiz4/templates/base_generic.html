@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- ... -->
+    {% load static %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+    {% block extra_css %}{% endblock %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- ... -->
+  </head>
+  <!-- ... -->
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-2">
+          {% block sidebar %}
+            <ul class="sidebar-nav">
+              <li><a href="{% url 'index' %}">Home</a></li>
+              <li><a href="{% url 'set_parameters' %}">Set up Parameters</a></li>
+              <li><a href="{% url 'start_quiz' %}">Run Quiz</a></li>
+              <li class="menu">
+                View Logs
+                <ul class="submenu">
+                  <li><a href="{% url 'user_logs' %}">View User Logs</a></li>
+                  {% if request.user.is_superuser %}
+                    <li><a href="{% url 'all_logs' %}">View All Logs</a></li>
+                  {% endif %}
+                </ul>
+              </li>
+              <!--{% if request.user.is_superuser %}
+              {% if question_file %}
+                <li><a href="{% url 'question_manager' question_file.id %}">Question Manager</a></li>
+              {% else %}
+                <li><a href="#">Question Manager</a></li>
+              {% endif %}
+              {% endif %}-->
+              {% if request.user.is_authenticated %}
+                <li>
+                  <form method="post" action="{% url 'logout' %}">
+                    {% csrf_token %}
+                    <input type="submit" value="Logout">
+                  </form>
+                </li>
+              {% endif %}
+            </ul>
+          {% endblock %}
+        </div>
+        <div class="col-sm-10">{% block content %}{% endblock %}</div>
+      </div>
+    </div>
+  </body>
+</html>

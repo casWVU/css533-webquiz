@@ -1,0 +1,43 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+  <h2>User Logs</h2>
+  <style>
+    .log {
+      border-bottom: 1px solid #000;
+      line-height: 1.5;
+      padding-bottom: 10px;
+      margin-bottom: 10px;
+    }
+  </style>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>User</th>
+        <th>Number of Questions</th>
+        <th>Questions Asked</th>
+        <th>Correct Answers</th>
+        <th>Percent Correct</th>
+        <th>Elapsed Time</th>
+        <th>Timestamp</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for log in logs %}
+        <tr class="log">
+          <td>{{ log.user }}</td>
+          <td>{{ log.num_questions }}</td>
+          <td>{{ log.questions_asked }}</td>
+          <td>{{ log.correct_answers }}</td>
+          <td>{{ log.percent_correct }}</td>
+          <td>{{ log.elapsed_time }}</td>
+          <td>{{ log.timestamp }}</td>
+        </tr>
+      {% empty %}
+        <tr>
+          <td colspan="7">No logs found.</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

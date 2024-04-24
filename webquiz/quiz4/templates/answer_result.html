@@ -1,0 +1,39 @@
+{% extends 'base_generic.html' %}
+
+{% block title %}
+    <title>Answer Result</title>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1>Answer Result</h1>
+        <p>{{ result }}</p>
+        
+        <!-- Button/link to move to the next question -->
+        <a href="{% url 'quiz_question' %}" class="btn btn-primary" id="nextQuestionButton">Next Question</a>
+    </div>
+
+    <script>
+        // Get the start time and time limit from the session
+        var startTime = new Date({{ request.session.start_time }});
+        var timeLimit = parseInt("{{ request.session.time_limit }}", 10);
+        console.log("Start Time: ", startTime);
+        console.log("Time Limit: ", timeLimit);
+
+        // Start a countdown timer
+        var timer = setInterval(function() {
+            // Calculate the elapsed time in seconds
+            var elapsedTime = Math.floor((new Date() - startTime) / 1000);
+            console.log("Elapsed Time: ", elapsedTime);
+
+            // Check if the time limit has been exceeded
+            if (elapsedTime >= timeLimit) {
+                // If the time limit has been exceeded, clear the timer
+                clearInterval(timer);
+
+                // Automatically submit the quiz form
+                window.location.href = "{% url 'quiz_results' %}";
+            }
+        }, 1000);
+    </script>
+{% endblock %}

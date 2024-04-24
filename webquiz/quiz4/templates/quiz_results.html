@@ -1,0 +1,14 @@
+{% extends 'base_generic.html' %}
+
+{% block title %}
+    <title>Quiz Results</title>
+{% endblock %}
+
+{% block content %}
+    <h1>Quiz Results</h1>
+    <p>Total questions for quiz: {{ num_questions }}</p>
+    <p>Total questions asked: {{ questions_asked }}</p>
+    <p>Number of correct answers: {{ correct_answers }}</p>
+    <p>Percent correct: {{ percent_correct }}%</p>
+    <p>Time elapsed: {{ elapsed_time }} seconds</p>
+{% endblock %}

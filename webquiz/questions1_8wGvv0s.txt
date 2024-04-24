@@ -1,0 +1,245 @@
+* SAMPLE QUIZ QUESTIONS
+* Jim Mooney updated by Cswope
+* CS 533
+
+* This is a question file for the quiz program.
+* Any line that begins with an asterisk should be ignored.
+* Totally blank lines should also be ignored.
+
+* The file consists of a sequence of questions.
+* Each question has the following form:
+*
+*	1. A line beginning with "@Q".
+*	2. Up to ten lines giving the text of the question.
+*	3. A line beginning with "@A"
+*	4. A line consisting of the integer value for the correct answer
+*	5. Up to ten lines giving answer choices, one line each.
+*	6. A line beginning with "@E".
+*
+* The question file has the form of a sequence of variable-length
+* text lines, Each containing 75 characters or fewer.  The character
+* code and the detailed form of the file (line terminators, etc.) are
+* those conventional for the system on which it is installed.
+*
+* The following example file contains two questions.  The first has
+* four possible answers; the correct answer is the second.  The second
+* has six possible answers; the correct answer is the fourth.
+
+@Q
+How many class days are there in this entire term?
+@A
+2
+forty-one
+twenty-nine
+seems like hundreds
+who's counting?
+@E
+
+@Q
+
+This is a long question which rambles on with no apparent end in sight.
+It has two purposes.  The first is to catch those of you who have not
+provided enough buffer space for a very long question.  The second is to
+ask you to figure out how many letters there are (not counting spaces or
+punctuation marks) in this entire paragraph.
+
+@A
+4
+509
+266
+1066
+263
+None of the above
+All of the above
+@E
+
+@Q
+What is the capital city of Australia?
+@A
+2
+Sydney
+Canberra
+Melbourne
+@E
+
+@Q
+Who wrote the famous play "Romeo and Juliet"?
+@A
+3
+Charles Dickens
+Jane Austen
+William Shakespeare
+@E
+
+@Q
+Which planet is known as the "Red Planet"?
+@A
+5
+Pluto
+Venus
+Jupiter
+Saturn
+Mars
+@E
+
+@Q
+What is the chemical symbol for water?
+@A
+1
+H2O
+CO2
+NaCl
+@E
+
+@Q
+Who painted the famous Mona Lisa?
+@A
+1
+Leonardo da Vinci
+Vincent van Gogh
+Pablo Picasso
+@E
+
+@Q
+In which year did the Titanic sink?
+@A
+4
+1902
+1905
+1921
+1912
+@E
+
+@Q
+What is the largest mammal in the world?
+@A
+1
+Blue Whale
+Elephant
+Giraffe
+@E
+
+@Q
+Which country is known as the Land of the Rising Sun?
+@A
+3
+China
+South Korea
+Japan
+@E
+
+@Q
+Who is credited with inventing the telephone?
+@A
+2
+Thomas Edison
+Alexander Graham Bell
+Nikola Tesla
+@E
+
+@Q
+What is the largest organ in the human body?
+@A
+1
+Skin
+Heart
+Brain
+@E
+
+@Q
+What is the chemical symbol for gold?
+@A
+4
+Ag
+Pt
+Fe
+Au
+@E
+
+@Q
+What is the unit of measurement for force?
+@A
+1
+Newton
+Joule
+Watt
+@E
+
+@Q
+Which planet is known as the "Morning Star"?
+@A
+3
+Jupiter
+Mars
+Venus
+Mercury
+@E
+
+@Q
+What is the process by which plants make their food called?
+@A
+3
+Respiration
+Transpiration
+Photosynthesis
+@E
+
+@Q
+What is the smallest unit of matter?
+@A
+2
+Molecule
+Atom
+Cell
+@E
+
+@Q
+Which of the following is NOT a type of cloud?
+@A
+3
+Cumulus
+Stratus
+Volcanic
+@E
+
+@Q
+What is the speed of light in a vacuum?
+@A
+2
+100,000 meters per second
+299,792,458 meters per second
+3,000,000 meters per second
+@E
+
+@Q
+What is the process of a liquid turning into a gas at the surface called?
+@A
+2
+Condensation
+Evaporation
+Sublimation
+@E
+
+@Q
+What is the Earth's primary source of energy?
+@A
+3
+The Moon
+Geothermal energy
+The Sun
+Protons
+@E
+
+@Q
+What is the study of living organisms called?
+@A
+4
+Anatomy
+Chemistry
+Physics
+Biology
+@E
+
+* Remember: blank lines and comments are ignored throughout!
+
+* END OF FILE
